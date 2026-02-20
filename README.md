@@ -7,7 +7,7 @@ There are three tests, one for each isolation level (read committed, repeatable 
 
 - **Read committed**: Inside a transaction, a `SELECT` query can see changes committed by other transactions. This would lead to the following phenomena: Nonrepeatable Reads, Phantom Reads and Serialization Anomalies.
 - **Repeatable read**: Inside a transaction, queries only sees data committed before it started. When a repeatable read transaction tries to act over a row that is changed by a concurrent transaction, it will wait. If the concurrent transaction rolls back, then the repeatable read transaction will proceed, else, the repeatable read transaction will be rolled back with an error message. Possible phenomena in this level: Serialization Anomalies.
-- **Serializable**: Same as repeatable read level but with additional checks that monitor for conditions which could result in inconsistent states. 
+- **Serializable**: Same as repeatable read level but with additional checks that monitor for conditions which could result in inconsistent states.
 
 *Docs about phenomena and how isolation levels are implemented  in postgreSQL [here](https://www.postgresql.org/docs/current/transaction-iso.html).*
 
@@ -47,3 +47,5 @@ Also, PostgreSQL provides lock modes, for cases where this isolation levels alon
 
 ## Collaboration
 Feel free to add more cases, other databases or discuss anything!
+
+I've made a video explaining how this works and why phenomena could be happening: https://youtu.be/MRmKFp3qPFw
